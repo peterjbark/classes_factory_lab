@@ -73,3 +73,25 @@ timmy.ageUp(15);
 timmy.eat(2);
 timmy.exercise(2);
 console.log(timmy);
+
+class Dinner {
+    constructor (appetizer, entree, dessert){
+        this.appetizer = appetizer;
+        this.entree = entree;
+        this.dessert = dessert;
+    }
+}
+class Chef {
+    bonApetit(appetizer, entree, dessert){
+        return new Dinner(appetizer, entree, dessert)
+    }
+}
+const dinners = [];
+const frenchChef = new Chef;
+dinners.push(frenchChef.bonApetit("Smoked Salmon Canapes", "Steak Frites", "Plum Galette"));
+dinners.push(frenchChef.bonApetit("Alsatian Cheese Tart", "Chicken Confit", "Crème Brûlée"));
+dinners.push(frenchChef.bonApetit("French Cheese Puffs", "French Onion Soup", "Crêpes Suzette"));
+
+for(meal of dinners) {
+    console.log("Today for dinner I had " + meal.appetizer + " as an appetizer, " + meal.entree + " for the main entree and, " + meal.dessert + " for dessert.");
+}
