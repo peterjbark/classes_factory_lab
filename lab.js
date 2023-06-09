@@ -14,7 +14,6 @@ class Hamster {
     return (`${this.price}`)
     }
 }
-const hamster1 = new Hamster("Jerry");
 
 class Person {
     constructor(name){
@@ -38,28 +37,39 @@ class Person {
     greet(){
         console.log("Hi! I'm " + `${this.name}` + ", nice to meet you.")
     }
-    eat(){
-        this.weight += 5;
-        this.mood += 3;
+    eat(times){
+        this.weight += times;
+        this.mood += times;
         console.log("This is some good food.")
     }
-    exercise(){
-        this.weight -= 2;
+    exercise(times){
+        this.weight -= times;
         console.log("Working out sucks.")
     }
-    ageUp(){
-        this.age += 10
-        this.height += 10
-        this.weight += 10
-        this.mood -= 10
-        this.bankAccount += 10
+    ageUp(times){
+        this.age += times
+        this.height += times
+        this.weight += times
+        this.mood -= times
+        this.bankAccount += times
     }
     buyHamster(hamster){
-        this.hamsters.push(Hamster)
+        this.hamsters.push(hamster)
         this.mood += 10
-        this.bankAccount -= this.price;
+        this.bankAccount -= hamster.getPrice();
     }
 }
-const person1 = new Person("Terry")
-person1.buyHamster("bob");
-console.log(person1);
+const timmy = new Person("Timmy");
+timmy.ageUp(5);
+timmy.eat(5);
+timmy.exercise(5);
+timmy.ageUp(9);
+
+const gus = new Hamster("Gus");
+gus.owner = "Timmy";
+
+timmy.buyHamster(gus);
+timmy.ageUp(15);
+timmy.eat(2);
+timmy.exercise(2);
+console.log(timmy);
